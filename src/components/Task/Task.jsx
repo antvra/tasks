@@ -1,6 +1,18 @@
 import React, { Component } from "react";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import PropTypes from "prop-types";
 
 export default class Task extends Component {
+  static propTypes = {
+    id: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
+    time: PropTypes.number.isRequired,
+    deleteTask: PropTypes.func.isRequired,
+    onToggleCompleted: PropTypes.func.isRequired,
+    onEditing: PropTypes.func.isRequired,
+    editing: PropTypes.bool.isRequired,
+    active: PropTypes.bool.isRequired,
+  };
   render() {
     const {
       id,
@@ -12,7 +24,13 @@ export default class Task extends Component {
       editing,
       active,
     } = this.props;
+
+    let date = formatDistanceToNow(time, {
+      includeSeconds: true,
+    });
+
     let classNames = "";
+
     if (!active) {
       classNames += " completed";
     }
@@ -33,7 +51,7 @@ export default class Task extends Component {
           />
           <label>
             <span className="description">{description}</span>
-            <span className="created">{time}</span>
+            <span className="created">{date}</span>
           </label>
           <button
             className="icon icon-edit"

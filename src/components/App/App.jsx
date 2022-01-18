@@ -7,9 +7,9 @@ export default class App extends Component {
   maxId = 100;
   state = {
     tasks: [
-      this.createTask("Completed task", "1 sec ago"),
-      this.createTask("Editing task", "2 sec ago"),
-      this.createTask("Active task", "3 sec ago"),
+      this.createTask("Completed task"),
+      this.createTask("Editing task"),
+      this.createTask("Active task"),
     ],
     filterProp: "all",
   };
@@ -20,7 +20,8 @@ export default class App extends Component {
     });
   };
 
-  createTask(text, date) {
+  createTask(text) {
+    const date = Date.now();
     return {
       description: text,
       time: date,
@@ -89,7 +90,6 @@ export default class App extends Component {
         <section className="main">
           <TaskList
             tasks={filteredTasks}
-            filterProp={filterProp}
             deleteTask={(id) => this.deleteTask(id)}
             onToggleCompleted={(id) => this.onToggleCompleted(id)}
             onEditing={(id) => this.onEditing(id)}

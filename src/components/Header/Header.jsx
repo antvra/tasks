@@ -12,7 +12,9 @@ export default class Header extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.addTask(this.state.value);
+    if (this.state.value) {
+      this.props.addTask(this.state.value);
+    }
     this.setState({ value: "" });
   };
 
