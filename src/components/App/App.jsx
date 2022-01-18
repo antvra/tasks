@@ -5,6 +5,7 @@ import Footer from '../Footer/Footer';
 
 export default class App extends Component {
   maxId = 100;
+
   state = {
     tasks: [this.createTask('Completed task'), this.createTask('Editing task'), this.createTask('Active task')],
     filterProp: 'all',
@@ -15,17 +16,6 @@ export default class App extends Component {
       filterProp,
     });
   };
-
-  createTask(text) {
-    const date = Date.now();
-    return {
-      description: text,
-      time: date,
-      id: this.maxId++,
-      editing: false,
-      active: true,
-    };
-  }
 
   addTask = (text, date) => {
     const newItem = this.createTask(text, date);
@@ -47,6 +37,14 @@ export default class App extends Component {
     });
   };
 
+  onToggleCompleted = (id) => {
+    this.setState(({ tasks }) => ({ tasks: this.toggleProps(tasks, id, 'active') }));
+  };
+
+  onEditing = (id) => {
+    this.setState(({ tasks }) => ({ tasks: this.toggleProps(tasks, id, 'editing') }));
+  };
+
   toggleProps(arr, id, propName) {
     const i = arr.findIndex((el) => el.id === id);
     const oldTask = arr[i];
@@ -54,21 +52,17 @@ export default class App extends Component {
     return [...arr.slice(0, i), newTask, ...arr.slice(i + 1)];
   }
 
-  onToggleCompleted = (id) => {
-    this.setState(({ tasks }) => {
-      return {
-        tasks: this.toggleProps(tasks, id, 'active'),
-      };
-    });
-  };
-
-  onEditing = (id) => {
-    this.setState(({ tasks }) => {
-      return {
-        tasks: this.toggleProps(tasks, id, 'editing'),
-      };
-    });
-  };
+  createTask(text) {
+    const date = Date.now();
+    this.maxId += this.maxId;
+    return {
+      description: text,
+      time: date,
+      id: this.maxId,
+      editing: false,
+      active: true,
+    };
+  }
 
   render() {
     const { tasks, filterProp } = this.state;

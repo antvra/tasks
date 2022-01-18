@@ -10,28 +10,26 @@ export default class Header extends Component {
     value: '',
   };
 
-  onSubmit = (e) => {
-    e.preventDefault();
-    if (this.state.value) {
-      this.props.addTask(this.state.value);
+  onSubmit = (event) => {
+    const { value } = this.state;
+    const { addTask } = this.props;
+    event.preventDefault();
+    if (value) {
+      addTask(value);
     }
     this.setState({ value: '' });
   };
 
-  onInputChange = (e) => {
-    this.setState({ value: e.target.value });
+  onInputChange = (event) => {
+    this.setState({ value: event.target.value });
   };
+
   render() {
+    const { value } = this.state;
     return (
       <form className="header" onSubmit={this.onSubmit}>
         <h1>todos</h1>
-        <input
-          className="new-todo"
-          placeholder="What needs to be done?"
-          autoFocus
-          onChange={this.onInputChange}
-          value={this.state.value}
-        />
+        <input className="new-todo" placeholder="What needs to be done?" onChange={this.onInputChange} value={value} />
       </form>
     );
   }
