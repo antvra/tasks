@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import TasksFilter from "../TasksFilter/TasksFilter";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import TasksFilter from '../TasksFilter/TasksFilter';
 
 export default class Footer extends Component {
   static defaultProps = {
     leftCount: 0,
-    filterProp: "all",
+    filterProp: 'all',
   };
 
   static propTypes = {
@@ -17,9 +17,7 @@ export default class Footer extends Component {
   };
 
   callDeleteForAll = () => {
-    const ids = this.props.tasks
-      .filter((item) => !item.active)
-      .map((item) => item.id);
+    const ids = this.props.tasks.filter((item) => !item.active).map((item) => item.id);
     ids.forEach((id) => this.props.deleteTask(id));
   };
   render() {
@@ -27,10 +25,7 @@ export default class Footer extends Component {
     return (
       <footer className="footer">
         <span className="todo-count">{leftCount} items left</span>
-        <TasksFilter
-          changeFilter={(filterProp) => changeFilter(filterProp)}
-          filterProp={filterProp}
-        />
+        <TasksFilter changeFilter={(filterProp) => changeFilter(filterProp)} filterProp={filterProp} />
         <button className="clear-completed" onClick={this.callDeleteForAll}>
           Clear completed
         </button>

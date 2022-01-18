@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Header extends Component {
   static propTypes = {
@@ -7,7 +7,7 @@ export default class Header extends Component {
   };
 
   state = {
-    value: "",
+    value: '',
   };
 
   onSubmit = (e) => {
@@ -15,7 +15,7 @@ export default class Header extends Component {
     if (this.state.value) {
       this.props.addTask(this.state.value);
     }
-    this.setState({ value: "" });
+    this.setState({ value: '' });
   };
 
   onInputChange = (e) => {

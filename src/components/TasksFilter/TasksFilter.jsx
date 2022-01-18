@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 export default class TasksFilter extends Component {
   render() {
@@ -6,26 +6,17 @@ export default class TasksFilter extends Component {
     return (
       <ul className="filters">
         <li>
-          <button
-            className={filterProp === "all" ? "selected" : null}
-            onClick={() => changeFilter("all")}
-          >
+          <button className={filterProp === 'all' ? 'selected' : null} onClick={() => changeFilter('all')}>
             All
           </button>
         </li>
         <li>
-          <button
-            className={filterProp === "active" ? "selected" : null}
-            onClick={() => changeFilter("active")}
-          >
+          <button className={filterProp === 'active' ? 'selected' : null} onClick={() => changeFilter('active')}>
             Active
           </button>
         </li>
         <li>
-          <button
-            className={filterProp === "completed" ? "selected" : null}
-            onClick={() => changeFilter("completed")}
-          >
+          <button className={filterProp === 'completed' ? 'selected' : null} onClick={() => changeFilter('completed')}>
             Completed
           </button>
         </li>

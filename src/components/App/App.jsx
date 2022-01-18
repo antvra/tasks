@@ -1,17 +1,13 @@
-import React, { Component } from "react";
-import Header from "../Header/Header";
-import TaskList from "../TaskList/TaskList";
-import Footer from "../Footer/Footer";
+import React, { Component } from 'react';
+import Header from '../Header/Header';
+import TaskList from '../TaskList/TaskList';
+import Footer from '../Footer/Footer';
 
 export default class App extends Component {
   maxId = 100;
   state = {
-    tasks: [
-      this.createTask("Completed task"),
-      this.createTask("Editing task"),
-      this.createTask("Active task"),
-    ],
-    filterProp: "all",
+    tasks: [this.createTask('Completed task'), this.createTask('Editing task'), this.createTask('Active task')],
+    filterProp: 'all',
   };
 
   changeFilter = (filterProp) => {
@@ -61,7 +57,7 @@ export default class App extends Component {
   onToggleCompleted = (id) => {
     this.setState(({ tasks }) => {
       return {
-        tasks: this.toggleProps(tasks, id, "active"),
+        tasks: this.toggleProps(tasks, id, 'active'),
       };
     });
   };
@@ -69,7 +65,7 @@ export default class App extends Component {
   onEditing = (id) => {
     this.setState(({ tasks }) => {
       return {
-        tasks: this.toggleProps(tasks, id, "editing"),
+        tasks: this.toggleProps(tasks, id, 'editing'),
       };
     });
   };
@@ -77,11 +73,7 @@ export default class App extends Component {
   render() {
     const { tasks, filterProp } = this.state;
     const filteredTasks =
-      filterProp === "all"
-        ? tasks
-        : tasks.filter((item) =>
-            filterProp === "completed" ? !item.active : item.active
-          );
+      filterProp === 'all' ? tasks : tasks.filter((item) => (filterProp === 'completed' ? !item.active : item.active));
     const completedCount = tasks.filter((el) => !el.active).length;
     const leftCount = tasks.length - completedCount;
     return (

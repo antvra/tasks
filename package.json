@@ -2,6 +2,7 @@
   "name": "todoapp",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://swiftrade.github.io/tasks/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
@@ -30,6 +31,17 @@
       "react-app/jest"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.(js|jsx)": [
+      "npm run lint:write",
+      "git add"
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -54,16 +66,5 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.2.0",
     "prettier": "^2.5.1"
-  },
-  "husky": {
-    "hooks":{
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged":{
-    "*.jsx" :[
-      "npm run lint:fix",
-      "git add"
-    ]
   }
 }
