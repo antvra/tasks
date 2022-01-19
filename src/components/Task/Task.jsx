@@ -2,7 +2,16 @@ import React from 'react';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import PropTypes from 'prop-types';
 
-const Task = ({ id, description, time, deleteTask, onToggleCompleted, onEditing, editing, active }) => {
+const Task = ({ id, description, time, deleteTask, onToggleCompleted, onEditing, editing, active, editTask }) => {
+  const onInputChange = (event) => {
+    if (event.keyCode === 13) {
+      editTask(id, event.target.value);
+      onEditing(id);
+    } else if (event.keyCode === 27) {
+      onEditing(id);
+    }
+  };
+
   const date = formatDistanceToNow(time, {
     includeSeconds: true,
   });
@@ -29,7 +38,7 @@ const Task = ({ id, description, time, deleteTask, onToggleCompleted, onEditing,
         <button aria-label="edit btn" type="button" className="icon icon-edit" onClick={() => onEditing(id)} />
         <button aria-label="delete btn" type="button" className="icon icon-destroy" onClick={() => deleteTask(id)} />
       </div>
-      {editing && <input type="text" className="edit" defaultValue="Editing task" />}
+      {editing && <input type="text" className="edit" placeholder={description} onKeyDown={onInputChange} />}
     </li>
   );
 };
@@ -43,6 +52,7 @@ Task.propTypes = {
   onEditing: PropTypes.func.isRequired,
   editing: PropTypes.bool.isRequired,
   active: PropTypes.bool.isRequired,
+  editTask: PropTypes.func.isRequired,
 };
 
 export default Task;

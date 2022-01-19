@@ -45,6 +45,15 @@ export default class App extends Component {
     this.setState(({ tasks }) => ({ tasks: this.toggleProps(tasks, id, 'editing') }));
   };
 
+  editTask = (id, newDescription) => {
+    const { tasks } = this.state;
+    const i = tasks.findIndex((el) => el.id === id);
+    const oldTask = tasks[i];
+    const newTask = { ...oldTask, description: newDescription };
+    const newTasks = [...tasks.slice(0, i), newTask, ...tasks.slice(i + 1)];
+    this.setState({ tasks: newTasks });
+  };
+
   toggleProps(arr, id, propName) {
     const i = arr.findIndex((el) => el.id === id);
     const oldTask = arr[i];
@@ -54,7 +63,7 @@ export default class App extends Component {
 
   createTask(text) {
     const date = Date.now();
-    this.maxId += this.maxId;
+    this.maxId += 1;
     return {
       description: text,
       time: date,
@@ -79,6 +88,7 @@ export default class App extends Component {
             deleteTask={(id) => this.deleteTask(id)}
             onToggleCompleted={(id) => this.onToggleCompleted(id)}
             onEditing={(id) => this.onEditing(id)}
+            editTask={(id, newDescription) => this.editTask(id, newDescription)}
           />
           <Footer
             leftCount={leftCount}

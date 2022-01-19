@@ -31,7 +31,7 @@ const TasksFilter = ({ changeFilter, filterProp }) => (
 
 TasksFilter.propTypes = {
   changeFilter: PropTypes.func.isRequired,
-  filterProp: PropTypes.func.isRequired,
+  filterProp: PropTypes.string.isRequired,
 };
 
 export default TasksFilter;
