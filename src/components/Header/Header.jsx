@@ -14,7 +14,7 @@ export default class Header extends Component {
     const { value } = this.state;
     const { addTask } = this.props;
     event.preventDefault();
-    if (value) {
+    if (value.trim()) {
       addTask(value);
     }
     this.setState({ value: '' });
@@ -29,7 +29,14 @@ export default class Header extends Component {
     return (
       <form className="header" onSubmit={this.onSubmit}>
         <h1>todos</h1>
-        <input className="new-todo" placeholder="What needs to be done?" onChange={this.onInputChange} value={value} />
+        <label>
+          <input
+            className="new-todo"
+            placeholder="What needs to be done?"
+            onChange={this.onInputChange}
+            value={value}
+          />
+        </label>
       </form>
     );
   }

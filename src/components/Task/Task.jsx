@@ -5,7 +5,10 @@ import PropTypes from 'prop-types';
 const Task = ({ id, description, time, deleteTask, onToggleCompleted, onEditing, editing, active, editTask }) => {
   const onInputChange = (event) => {
     if (event.keyCode === 13) {
-      editTask(id, event.target.value);
+      const description = event.target.value;
+      if (description.trim()) {
+        editTask(id, description);
+      }
       onEditing(id);
     } else if (event.keyCode === 27) {
       onEditing(id);
@@ -30,15 +33,19 @@ const Task = ({ id, description, time, deleteTask, onToggleCompleted, onEditing,
   return (
     <li className={classNames}>
       <div className="view">
-        <input checked={!active} className="toggle" type="checkbox" onChange={() => onToggleCompleted(id)} />
-        <label>
+        <input id={id} checked={!active} className="toggle" type="checkbox" onChange={() => onToggleCompleted(id)} />
+        <label htmlFor={id}>
           <span className="description">{description}</span>
           <span className="created">{date}</span>
         </label>
         <button aria-label="edit btn" type="button" className="icon icon-edit" onClick={() => onEditing(id)} />
         <button aria-label="delete btn" type="button" className="icon icon-destroy" onClick={() => deleteTask(id)} />
       </div>
-      {editing && <input type="text" className="edit" placeholder={description} onKeyDown={onInputChange} />}
+      {editing && (
+        <label style={{ padding: 0 }}>
+          <input type="text" className="edit" defaultValue={description} onKeyDown={onInputChange} />
+        </label>
+      )}
     </li>
   );
 };

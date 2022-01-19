@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Header from '../Header/Header';
-import TaskList from '../TaskList/TaskList';
-import Footer from '../Footer/Footer';
+import Header from '../Header';
+import TaskList from '../TaskList';
+import Footer from '../Footer';
 
 export default class App extends Component {
   maxId = 100;
