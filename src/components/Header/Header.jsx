@@ -52,33 +52,39 @@ export default class Header extends Component {
       <header className="header">
         <h1>todos</h1>
         <form className="new-todo-form" onSubmit={this.onSubmit}>
-          <input
-            className="new-todo"
-            placeholder="What needs to be done?"
-            onChange={this.onInputTextChange}
-            value={value}
-            required
-          />
-          <input
-            type="number"
-            className="new-todo-form__timer"
-            placeholder="Min"
-            min="0"
-            max="9999"
-            onChange={this.onInputMinChange}
-            value={min}
-            required
-          />
-          <input
-            type="number"
-            className="new-todo-form__timer"
-            placeholder="Sec"
-            min="0"
-            max="59"
-            onChange={this.onInputSecChange}
-            value={sec}
-            required
-          />
+          <label style={{ display: 'contents' }}>
+            <input
+              className="new-todo"
+              placeholder="What needs to be done?"
+              onChange={this.onInputTextChange}
+              value={value}
+              required
+            />
+          </label>
+          <label style={{ display: 'contents' }}>
+            <input
+              type="number"
+              className="new-todo-form__timer"
+              placeholder="Min"
+              min="0"
+              max="9999"
+              onChange={this.onInputMinChange}
+              value={min}
+              required
+            />
+          </label>
+          <label style={{ display: 'contents' }}>
+            <input
+              type="number"
+              className="new-todo-form__timer"
+              placeholder="Sec"
+              min="0"
+              max="59"
+              onChange={this.onInputSecChange}
+              value={sec}
+              required
+            />
+          </label>
           <button type="submit" aria-label="btn" className="hidden" />
         </form>
       </header>
