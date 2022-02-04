@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "//swiftrade.github.io/tasks/static/css/main.ada5751f.chunk.css",
-    "main.js": "//swiftrade.github.io/tasks/static/js/main.71e2fbac.chunk.js",
-    "main.js.map": "//swiftrade.github.io/tasks/static/js/main.71e2fbac.chunk.js.map",
-    "runtime-main.js": "//swiftrade.github.io/tasks/static/js/runtime-main.a0400150.js",
-    "runtime-main.js.map": "//swiftrade.github.io/tasks/static/js/runtime-main.a0400150.js.map",
-    "static/js/2.c8144021.chunk.js": "//swiftrade.github.io/tasks/static/js/2.c8144021.chunk.js",
-    "static/js/2.c8144021.chunk.js.map": "//swiftrade.github.io/tasks/static/js/2.c8144021.chunk.js.map",
-    "index.html": "//swiftrade.github.io/tasks/index.html",
-    "static/css/main.ada5751f.chunk.css.map": "//swiftrade.github.io/tasks/static/css/main.ada5751f.chunk.css.map",
-    "static/js/2.c8144021.chunk.js.LICENSE.txt": "//swiftrade.github.io/tasks/static/js/2.c8144021.chunk.js.LICENSE.txt"
+    "main.css": "/tasks/static/css/main.ada5751f.chunk.css",
+    "main.js": "/tasks/static/js/main.71e2fbac.chunk.js",
+    "main.js.map": "/tasks/static/js/main.71e2fbac.chunk.js.map",
+    "runtime-main.js": "/tasks/static/js/runtime-main.19f11f28.js",
+    "runtime-main.js.map": "/tasks/static/js/runtime-main.19f11f28.js.map",
+    "static/js/2.c8144021.chunk.js": "/tasks/static/js/2.c8144021.chunk.js",
+    "static/js/2.c8144021.chunk.js.map": "/tasks/static/js/2.c8144021.chunk.js.map",
+    "index.html": "/tasks/index.html",
+    "static/css/main.ada5751f.chunk.css.map": "/tasks/static/css/main.ada5751f.chunk.css.map",
+    "static/js/2.c8144021.chunk.js.LICENSE.txt": "/tasks/static/js/2.c8144021.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.a0400150.js",
+    "static/js/runtime-main.19f11f28.js",
     "static/js/2.c8144021.chunk.js",
     "static/css/main.ada5751f.chunk.css",
     "static/js/main.71e2fbac.chunk.js"
