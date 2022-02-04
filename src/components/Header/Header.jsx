@@ -28,8 +28,8 @@ export default class Header extends Component {
 
   onInputMinChange = (event) => {
     this.setState({ min: event.target.value });
-    if (event.target.value > 59) {
-      this.setState({ min: '59' });
+    if (event.target.value > 9999) {
+      this.setState({ min: '9999' });
     }
     if (event.target.value < 0) {
       this.setState({ min: '' });
@@ -64,7 +64,7 @@ export default class Header extends Component {
             className="new-todo-form__timer"
             placeholder="Min"
             min="0"
-            max="59"
+            max="9999"
             onChange={this.onInputMinChange}
             value={min}
             required
