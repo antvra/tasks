@@ -7,7 +7,11 @@ export default class App extends Component {
   maxId = 100;
 
   state = {
-    tasks: [this.createTask('Completed task'), this.createTask('Editing task'), this.createTask('Active task')],
+    tasks: [
+      this.createTask('Completed task', '0', '5'),
+      this.createTask('Editing task', '12', '25'),
+      this.createTask('Active task', '45', '21'),
+    ],
     filterProp: 'all',
   };
 
@@ -17,8 +21,8 @@ export default class App extends Component {
     });
   };
 
-  addTask = (text, date) => {
-    const newItem = this.createTask(text, date);
+  addTask = (text, minutes, seconds) => {
+    const newItem = this.createTask(text, minutes, seconds);
     this.setState(({ tasks }) => {
       const newArr = [...tasks, newItem];
       return {
@@ -61,7 +65,7 @@ export default class App extends Component {
     return [...arr.slice(0, i), newTask, ...arr.slice(i + 1)];
   }
 
-  createTask(text) {
+  createTask(text, minutes, seconds) {
     const date = Date.now();
     this.maxId += 1;
     return {
@@ -70,6 +74,7 @@ export default class App extends Component {
       id: this.maxId,
       editing: false,
       active: true,
+      timer: minutes * 60 + +seconds,
     };
   }
 

@@ -1,8 +1,20 @@
 import React from 'react';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import PropTypes from 'prop-types';
+import Timer from '../Timer';
 
-const Task = ({ id, description, time, deleteTask, onToggleCompleted, onEditing, editing, active, editTask }) => {
+const Task = ({
+  id,
+  description,
+  time,
+  deleteTask,
+  onToggleCompleted,
+  onEditing,
+  editing,
+  active,
+  editTask,
+  timer,
+}) => {
   const onInputChange = (event) => {
     if (event.keyCode === 13) {
       const description = event.target.value;
@@ -35,8 +47,9 @@ const Task = ({ id, description, time, deleteTask, onToggleCompleted, onEditing,
       <div className="view">
         <input id={id} checked={!active} className="toggle" type="checkbox" onChange={() => onToggleCompleted(id)} />
         <label htmlFor={id}>
-          <span className="description">{description}</span>
-          <span className="created">{date}</span>
+          <span className="title">{description}</span>
+          <Timer timer={timer} />
+          <span className="description">{date}</span>
         </label>
         <button aria-label="edit btn" type="button" className="icon icon-edit" onClick={() => onEditing(id)} />
         <button aria-label="delete btn" type="button" className="icon icon-destroy" onClick={() => deleteTask(id)} />
@@ -60,6 +73,7 @@ Task.propTypes = {
   editing: PropTypes.bool.isRequired,
   active: PropTypes.bool.isRequired,
   editTask: PropTypes.func.isRequired,
+  timer: PropTypes.number.isRequired,
 };
 
 export default Task;
