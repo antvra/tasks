@@ -241,6 +241,12 @@ body {
 .todo-list li label .description {
   font-size: 13px;
   color: gray;
+  display: flex;
+  align-items: center;
+}
+
+.time {
+  margin-left: 10px;
 }
 
 .todo-list li label .title {
@@ -298,7 +304,6 @@ body {
 .todo-list li .icon-play {
   font-size: 18px;
   width: 18px;
-  height: 18px;
 }
 
 .todo-list li .icon-play {

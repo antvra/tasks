@@ -14,9 +14,21 @@ const Timer = ({ timer }) => {
 
   return (
     <span className="description">
-      <button type="button" className="icon icon-play" aria-label="play" onClick={() => setTimerActive(true)} />
-      <button type="button" className="icon icon-pause" aria-label="pause" onClick={() => setTimerActive(false)} />
-      {`${Math.floor(seconds / 60)}:${Math.floor(seconds % 60)}`}
+      <button
+        type="button"
+        className="icon icon-play"
+        aria-label="play"
+        title="Start"
+        onClick={() => setTimerActive(true)}
+      />
+      <button
+        type="button"
+        className="icon icon-pause"
+        aria-label="pause"
+        title="Pause"
+        onClick={() => setTimerActive(false)}
+      />
+      <span className="time">{`${Math.floor(seconds / 60)}:${Math.floor(seconds % 60)}`}</span>
     </span>
   );
 };
